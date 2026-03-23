@@ -1,0 +1,14 @@
+""" copy content of one file to another
+Created on Mon Mar 23 15:12:13 2026
+
+@author: aarya more
+"""
+
+# open both files
+with open('EXP6.py','r') as firstfile, open('EXP6-act1.py','a') as secondfile:
+    
+    # read content from first file
+    for line in firstfile:
+             
+             # append content to second file
+             secondfile.write(line)
