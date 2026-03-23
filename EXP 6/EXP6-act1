@@ -1,0 +1,13 @@
+"""
+Created on Mon Mar 23 15:08:03 2026
+
+@author: aarya more
+"""
+
+count = 0
+with open('EXP6.py', 'r') as f:
+    data = f.read()
+    words = data.split()
+    count += len(words)
+
+print("Total Words:" ,count)
