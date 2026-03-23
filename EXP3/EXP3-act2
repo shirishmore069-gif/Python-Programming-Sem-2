@@ -1,0 +1,40 @@
+# Write a recursive function to calculate total stairs climbed if each step adds 1 count.
+"""
+Created on Mon Mar 23 15:55:55 2026
+
+@author: aarya
+"""
+
+def calculate_total_stairs(current_step):
+    """
+    Calculates the total number of stairs climbed recursively.
+    
+    Each call to the function represents taking one step.
+    The recursion stops when the base case (e.g., reaching 0) is met.
+    
+    Args:
+        current_step (int): The current step count to process.
+
+    Returns:
+        int: The total number of stairs counted so far.
+    """
+    # Base case: If there are no more steps to count down from, return 0.
+    if current_step <= 0:
+        return 0
+    # Recursive case: 
+    # Add 1 for the current step and call the function again for the remaining steps.
+    else:
+        # The '1' represents the single step taken in this function call.
+        return 1 + calculate_total_stairs(current_step - 1)
+
+# --- Example Usage ---
+
+# Example 1: Calculate total stairs for 5 steps
+total_steps_1 = 5
+stairs_climbed_1 = calculate_total_stairs(total_steps_1)
+print(f"To climb {total_steps_1} steps, the total count is: {stairs_climbed_1}")
+
+# Example 2: Calculate total stairs for 10 steps
+total_steps_2 = 10
+stairs_climbed_2 = calculate_total_stairs(total_steps_2)
+print(f"To climb {total_steps_2} steps, the total count is: {stairs_climbed_2}")
