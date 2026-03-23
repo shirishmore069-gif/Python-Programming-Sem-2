@@ -1,0 +1,31 @@
+# Count frequency of items purchased by customers.
+"""
+Created on Mon Mar 23 15:38:06 2026
+
+@author: aarya
+"""
+
+# Sample data: A list representing items purchased by customers
+# Each entry in the list is a single purchased item.
+purchased_items = [
+    'Laptop', 'Mouse', 'Laptop', 'Keyboard', 'Laptop',
+    'Monitor', 'Mouse', 'Laptop', 'Keyboard', 'Mouse',
+    'Laptop', 'Monitor', 'Mouse', 'Keyboard', 'Laptop',
+    'Mouse', 'Laptop', 'Monitor', 'Mouse', 'Keyboard'
+]
+
+# Use Counter to count the frequency of each item
+item_frequencies = (purchased_items)
+
+# Print the results
+print("Item Frequencies:")
+for item, count in item_frequencies.items():
+    print(f"'{item}': {count} times")
+
+# You can also get a direct dictionary output
+print("\nDictionary Output:", dict(item_frequencies))
+
+# Find the most common items (e.g., top 2)
+print("\nTop 2 most common items:")
+for item, count in item_frequencies.most_common(2):
+    print(f"'{item}': {count} times")
