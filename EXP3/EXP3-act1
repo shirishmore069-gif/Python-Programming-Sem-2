@@ -1,0 +1,45 @@
+#  A ticket booking system repeats seat display pattern using loops
+"""
+Created on Mon Mar 23 15:52:34 2026
+
+@author: aarya 
+"""
+
+# Ticket Booking System Simulation
+def display_seats(seats):
+    print("\n  1 2 3 4 5 (Seats)")
+    for r in range(len(seats)):
+        print(f"{r+1} {' '.join(seats[r])}") # Display row number and seats
+    print()
+
+def book_tickets():
+    # Initialize 5x5 seating grid: 'O' means available
+    rows, cols = 5, 5
+    seats = [['O' for _ in range(cols)] for _ in range(rows)]
+    
+    while True:
+        display_seats(seats)
+        
+        try:
+            choice = input("Book a seat? (y/n): ").lower()
+            if choice != 'y':
+                print("Thank you for using our system.")
+                break
+                
+            r = int(input(f"Enter row (1-{rows}): ")) - 1
+            c = int(input(f"Enter seat (1-{cols}): ")) - 1
+            
+            if 0 <= r < rows and 0 <= c < cols:
+                if seats[r][c] == 'O':
+                    seats[r][c] = 'X' # Mark as booked
+                    print(f"Seat ({r+1},{c+1}) booked successfully!")
+                else:
+                    print("Seat already booked! Choose another.")
+            else:
+                print("Invalid seat number.")
+                
+        except ValueError:
+            print("Please enter valid numbers.")
+
+# Run the system
+book_tickets()
