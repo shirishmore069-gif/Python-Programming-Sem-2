@@ -1,40 +1,25 @@
-# Write a recursive function to calculate total stairs climbed if each step adds 1 count.
+# calculate EMI based on loan amount, rate, and years
 """
-Created on Mon Mar 23 15:55:55 2026
+Created on Mon Mar 23 03:30:54 2026
 
-@author: aarya
+@author:aarya
 """
 
-def calculate_total_stairs(current_step):
-    """
-    Calculates the total number of stairs climbed recursively.
+def calculate_emi(principal, annual_rate, years):
     
-    Each call to the function represents taking one step.
-    The recursion stops when the base case (e.g., reaching 0) is met.
+    monthly_rate = annual_rate / (12 * 100)
     
-    Args:
-        current_step (int): The current step count to process.
+    months = years * 12
+    
+    emi = (principal * monthly_rate * (1 + monthly_rate) * months) / ((1 + monthly_rate) * months - 1)
+    
+    return emi
 
-    Returns:
-        int: The total number of stairs counted so far.
-    """
-    # Base case: If there are no more steps to count down from, return 0.
-    if current_step <= 0:
-        return 0
-    # Recursive case: 
-    # Add 1 for the current step and call the function again for the remaining steps.
-    else:
-        # The '1' represents the single step taken in this function call.
-        return 1 + calculate_total_stairs(current_step - 1)
 
-# --- Example Usage ---
+p = float(input("Enter loan amount: "))
+r = float(input("Enter annual interest rate (%): "))
+t = int(input("Enter time (years): "))
 
-# Example 1: Calculate total stairs for 5 steps
-total_steps_1 = 5
-stairs_climbed_1 = calculate_total_stairs(total_steps_1)
-print(f"To climb {total_steps_1} steps, the total count is: {stairs_climbed_1}")
+emi = calculate_emi(p, r, t)
 
-# Example 2: Calculate total stairs for 10 steps
-total_steps_2 = 10
-stairs_climbed_2 = calculate_total_stairs(total_steps_2)
-print(f"To climb {total_steps_2} steps, the total count is: {stairs_climbed_2}")
+print(f"Monthly EMI = {emi:.2f}")
