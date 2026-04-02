@@ -1,25 +1,11 @@
-#  Count how many times a word appears in a review.
+#  find average and topper marks
 """
-Created on Mon Mar 23 15:44:37 2026
+Created on Tue Mar 10 10:28:18 2026
 
 @author: aarya
 """
-
-def count_specific_word(review_text, target_word):
-    # Convert the text and target word to lowercase to ensure case-insensitivity
-    # Also, remove punctuation for accurate word matching
-    cleaned_review = "".join(c for c in review_text if c.isalnum() or c.isspace())
-    words = cleaned_review.lower().split()
-    target_word_lower = target_word.lower()
-
-    # Use the list's count() method to find the frequency of the target word
-    count = words.count(target_word_lower)
-    return count
-
-# Example Usage:
-review = "The movie was great! I loved the acting, and the story was great as well. Great experience."
-word_to_find = "great"
-
-frequency = count_specific_word(review, word_to_find)
-
-print(f"The word '{word_to_find}' appears {frequency} times in the review.")
+markslist = [99,85,70,59,60,75,80]
+averagemarks = sum(markslist) / len(markslist)
+toppermarks = max(markslist)
+print(f"Average Marks:{averagemarks}")
+print(f"Topper Marks:{toppermarks}")
