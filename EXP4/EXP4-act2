@@ -1,21 +1,11 @@
-#  Remove duplicate mobile numbers from a contact list.
+# -*- coding: utf-8 -*-
 """
-Created on Mon Mar 23 15:46:52 2026
+Created on Tue Mar 10 11:06:23 2026
 
 @author: aarya
 """
 
-def remove_duplicates_set(contact_list):
-  """
-  Removes duplicate mobile numbers using a set. 
-  Note: This method does not preserve the original order.
-  """
-  unique_numbers = set(contact_list)
-  return list(unique_numbers)
-
-# Example Usage:
-mobile_numbers = ['123-456-7890', '987-654-3210', '123-456-7890', '555-123-4567', '987-654-3210']
-unique_list = remove_duplicates_set(mobile_numbers)
-
-print(f"Original list: {mobile_numbers}")
-print(f"Unique list (order not guaranteed): {unique_list}")
+prices = [200,100,300,400]
+totalbill = sum(prices)
+print("Productprices:",prices)
+print("Totalbill:",totalbill)
