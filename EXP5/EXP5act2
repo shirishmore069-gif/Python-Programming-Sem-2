@@ -1,31 +1,17 @@
-# Count frequency of items purchased by customers.
+# stores roll numbers in sets. Find students present in both classes.
 """
-Created on Mon Mar 23 15:38:06 2026
+Created on Mon Mar 9 15:32:18 2026
 
 @author: aarya
 """
+# Roll numbers present in Class A and Class B
+class_a = {101, 102, 105, 108, 110}
+class_b = {102, 103, 108, 112, 115}
 
-# Sample data: A list representing items purchased by customers
-# Each entry in the list is a single purchased item.
-purchased_items = [
-    'Laptop', 'Mouse', 'Laptop', 'Keyboard', 'Laptop',
-    'Monitor', 'Mouse', 'Laptop', 'Keyboard', 'Mouse',
-    'Laptop', 'Monitor', 'Mouse', 'Keyboard', 'Laptop',
-    'Mouse', 'Laptop', 'Monitor', 'Mouse', 'Keyboard'
-]
+# Find students present in both
+present_in_both = class_a.intersection(class_b)
 
-# Use Counter to count the frequency of each item
-item_frequencies = (purchased_items)
+# Alternatively, using the & operator:
+# present_in_both = class_a & class_b
 
-# Print the results
-print("Item Frequencies:")
-for item, count in item_frequencies.items():
-    print(f"'{item}': {count} times")
-
-# You can also get a direct dictionary output
-print("\nDictionary Output:", dict(item_frequencies))
-
-# Find the most common items (e.g., top 2)
-print("\nTop 2 most common items:")
-for item, count in item_frequencies.most_common(2):
-    print(f"'{item}': {count} times")
+print(f"Students present in both: {present_in_both}")
