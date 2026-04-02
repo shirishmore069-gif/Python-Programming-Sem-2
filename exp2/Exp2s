@@ -2,7 +2,7 @@
 """
 Created on Mon Mar 23 20:35:55 2026
 
-@author: sujit
+@author: aarya
 """
 
 n = int(input("Enter number:")) 
