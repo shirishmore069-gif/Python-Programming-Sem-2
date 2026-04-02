@@ -1,38 +1,31 @@
-# The library is a list of dictionaries, where each dictionary represents a book-
+#  Create dictionary
 """
-Created on Mon Mar  9 15:47:01 2026
+Created on Tue Mar 24 10:29:15 2026
 
-@author: aarya
+@author:aarya
 """
 
- #The library is a list of dictionaries, where each dictionary represents a book-
-{"name": "Python Basics", "price": 25.00},
-{"name": "Data Science with Python", "price": 45.50},
-{"name": "Web Development with Django", "price": 30.00}
+library = {
+    "Maths": 250,
+    "Physics": 300,
+    "Chemistry": 280
+}
 
 
-def display_books(books):
-    """Prints all books and their prices in a formatted way."""
-    if not books:
-        print("The library is currently empty.")
-        return
-    print("\nCurrent Library Book Prices:")
-    for book in books:
-        print(f"- {book['name']}: ${book['price']:.2f}")
-    print("-" * 20)
+print("Original Library Data:")
+print(library)
 
-def update_book_price(books, book_name, new_price):
-    """
-    Updates the price of a specified book.
-    If the book is not found, it prints an error message.
-    """
-    found = False
-    for book in books:
-        if book['name'].lower() == book_name.lower():
-            # Update the price of the existing key in the dictionary
-            book['price'] = new_price
-            found = True
-            print(f"\nSuccessfully updated the price of '{book_name}' to ${new_price:.2f}.")
-            break
-    if not found:
-        print(f"\nError: Book '{book_name}' not found in the library.")
+
+book = input("Enter book name to update: ")
+
+
+if book in library:
+    new_price = float(input("Enter new price: "))
+    library[book] = new_price
+    print("Price updated successfully!")
+else:
+    print("Book not found!")
+
+
+print("Updated Library Data:")
+print(library)
