@@ -1,23 +1,26 @@
-#  student attendance file and append new record
+# Copy backup data from one file to another.
 """
-Created on Mon Mar 23 15:22:08 2026
-
-@author: aarya more
+@author:aarya
 """
 
-filename = 'student_records.txt'
+# Source file (original data)
+source_file = "source.txt"
 
-# Open the file in append mode
-with open(filename, 'a') as file:
-    more_data = 'y'
-    while more_data.lower() == 'y':
-        name = input('Enter student name: ')
-        roll_no = input('Enter roll number: ')
-        marks = input('Enter marks: ')
-        
-        # Write the student record in the file
-        file.write(f'{name},{roll_no},{marks}\n')
-        
-        more_data = input('Do you want to add another record? (y/n): ')
+# Destination file (backup file)
+backup_file = "backup.txt"
 
-print('Student records have been appended successfully.')
+try:
+    # Open source file in read mode
+    with open(source_file, "r") as src:
+        data = src.read()
+
+    # Open destination file in write mode
+    with open(backup_file, "w") as dest:
+        dest.write(data)
+
+    print("Backup completed successfully!")
+
+except FileNotFoundError:
+    print("Error: Source file not found.")
+except Exception as e:
+    print("An error occurred:", e)
