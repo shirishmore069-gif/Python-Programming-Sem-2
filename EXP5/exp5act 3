@@ -1,36 +1,28 @@
-# Initial inventory: item name (key) and quantity (value)
+# A shop inventory dictionary stores item name and quantity. Add new stock.
 """
-Created on Mon Mar  9 15:55:27 2026
+Created on Mon Mar 9 15:37:01 2026
 
 @author: aarya
 """
 
-# Initial inventory: item name (key) and quantity (value)
-inventory = {
-    'apples': 50,
-    'bananas': 100,
-    'oranges': 75
-}
+inventory = {"Apples": 50, "Bananas": 20}
 
-def add_stock(item_name, quantity_added):
-    """
-    Adds new stock for a given item to the inventory dictionary.
-    If the item exists, updates its quantity.
-    If the item does not exist, adds it as a new entry.
-    """
-    if item_name in inventory:
-        inventory[item_name] += quantity_added
-        print(f"Updated stock for '{item_name}'. New quantity: {inventory[item_name]}")
-    else:
-        inventory[item_name] = quantity_added
-        print(f"Added new item '{item_name}' with quantity: {inventory[item_name]}")
+item = "Apples"
+added_quantity = 30
 
-def view_inventory():
-    """
-    Displays the current inventory.
-    """
-    print("\n--- Current Inventory ---")
-    for item, quantity in inventory.items():
-        print(f"{item}: {quantity}")
-    print("-------------------------\n")
+if item in inventory:
+    inventory[item] += added_quantity # Adds to existing 50
+else:
+    inventory[item] = added_quantity # Creates new entry if not found
+    
+from collections import defaultdict
+
+# Initialize with int (which defaults to 0)
+inventory = defaultdict(int, {"Apples": 50, "Bananas": 20})
+
+# No check needed!
+inventory["Apples"] += 30
+inventory["Oranges"] += 15 
+
+print(dict(inventory))
 
