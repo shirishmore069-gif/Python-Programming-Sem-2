@@ -1,0 +1,30 @@
+# Handle invalid age input in registration form.
+"""
+Created on Mon Apr 27 15:46:00 2026
+
+@author: AARYA
+"""
+
+while True:
+    try:
+        # Take input and convert to integer
+        age = int(input("Enter your age (must be > 0): "))
+        
+        # Check if age is positive
+        if age > 0:
+            print(f"Registration successful! Age registered: {age}")
+            break
+        else:
+            print("Invalid input. Age must be a positive number.")
+            
+    except ValueError:
+        # Handle non-integer input (e.g., text)
+        print("Error! Please enter a valid number.")
+
+# Output Example:
+# Enter your age (must be > 0): twenty
+# Error! Please enter a valid number.
+# Enter your age (must be > 0): -5
+# Invalid input. Age must be a positive number.
+# Enter your age (must be > 0): 25
+# Registration successful! Age registered: 25
