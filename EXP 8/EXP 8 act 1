@@ -1,0 +1,30 @@
+# ATM withdrawal system handles insufficient balance.
+"""
+Created on Mon Apr 27 15:44:22 2026
+
+@author: Aarya
+"""
+
+def atm_withdrawal():
+    balance = 1000.00  # Initial account balance
+    print(f"Welcome! Your current balance is: ${balance:.2f}")
+    
+    try:
+        withdrawal = float(input("Enter amount to withdraw: $"))
+        
+        # Insufficient Balance Handling
+        if withdrawal > balance:
+            print("Error: Insufficient funds.")
+            print(f"Transaction declined. Remaining balance: ${balance:.2f}")
+        elif withdrawal <= 0:
+            print("Error: Please enter a valid positive amount.")
+        else:
+            balance -= withdrawal
+            print(f"Success! You withdrew: ${withdrawal:.2f}")
+            print(f"Remaining balance: ${balance:.2f}")
+            
+    except ValueError:
+        print("Error: Invalid input. Please enter a numerical value.")
+
+# Run the simulation
+atm_withdrawal()
