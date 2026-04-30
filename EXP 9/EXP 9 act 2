@@ -1,0 +1,25 @@
+# Display today’s date in a hospital appointment system.
+"""
+Created on Thu Apr 30 15:33:18 2026
+
+@author: aarya
+"""
+
+from datetime import date
+
+def display_appointment_header():
+    # Retrieve the current date
+    today = date.today()
+    
+    # Format the date for the hospital system (Day, Month DD, YYYY)
+    formatted_date = today.strftime("%A, %B %d, %Y")
+    
+    print("-" * 40)
+    print("   CITY GENERAL HOSPITAL APPOINTMENTS   ")
+    print(f"   Today's Date: {formatted_date}")
+    print("-" * 40)
+    print("Welcome! Please select an option to proceed.")
+
+# Run the program
+if __name__ == "__main__":
+    display_appointment_header()
