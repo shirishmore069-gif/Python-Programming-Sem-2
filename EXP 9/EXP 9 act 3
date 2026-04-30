@@ -1,0 +1,24 @@
+# Calculate distance using math formulas
+"""
+Created on Thu Apr 30 15:34:46 2026
+
+@author: aarya 
+"""
+
+import math
+
+# Define the coordinates of the two points
+p1 = (3, 4)
+p2 = (7, 1)
+
+# Method 1: Using basic math formula
+# The ** operator is used for exponents (squared and square root)
+distance = ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)**0.5
+
+# Method 2: Using the math.dist() function (Python 3.8+)
+# This is the most efficient built-in way
+dist_func = math.dist(p1, p2)
+
+print(f"Point 1: {p1}")
+print(f"Point 2: {p2}")
+print(f"Calculated Distance: {distance:.2f}")
