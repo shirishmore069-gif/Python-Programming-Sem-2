@@ -1,0 +1,43 @@
+# Create a Streamlit grocery bill calculator.
+"""
+Created on Tue May 12 14:36:49 2026
+
+@author: aarya more
+"""
+
+import streamlit as st
+import pandas as pd
+
+st.set_page_config(page_title="Grocery Calculator", page_icon="🛒")
+
+st.title("🛒 Grocery Bill Calculator")
+
+# Initialize a default dataframe
+if 'df' not in st.session_state:
+    st.session_state.df = pd.DataFrame(
+        [{"Item": "Apples", "Price": 100, "Quantity": 6}],
+        columns=["Item", "Price", "Quantity"]
+    )
+
+# Editable table
+st.write("Edit your list below:")
+edited_df = st.data_editor(st.session_state.df, num_rows="dynamic", use_container_width=True)
+
+# Calculations
+edited_df["Total (rs)"] = edited_df["Price"] * edited_df["Quantity"]
+grand_total = edited_df["Total (rs)"].sum()
+
+# Display Results
+st.divider()
+col1, col2 = st.columns(2)
+
+with col1:
+    st.metric("Total Items", int(edited_df["Quantity"].sum()))
+
+with col2:
+    st.metric("Grand Total", f"{grand_total:.2f}")
+
+if st.button("Clear List"):
+    st.session_state.df = pd.DataFrame(columns=["Item", "Price", "Quantity"])
+    st.rerun()
+    
