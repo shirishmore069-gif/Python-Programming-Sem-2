@@ -1,0 +1,29 @@
+# Create a BMI health checker app.
+"""
+Created on Tue May 12 14:42:08 2026
+
+@author: aarya more
+"""
+
+import streamlit as st
+
+st.title("BMI Calculator")
+
+# Input units
+weight = st.number_input("Weight (kg)", value=70.0)
+height_cm = st.number_input("Height (cm)", value=175.0)
+
+if height_cm > 0:
+    bmi = weight / ((height_cm / 100) ** 2)
+    st.metric("Your BMI", round(bmi, 1))
+
+    # Health logic
+    if bmi < 18.5:
+        st.warning("Underweight")
+    elif 18.5 <= bmi < 25:
+        st.success("Healthy Weight")
+    elif 25 <= bmi < 30:
+        st.warning("Overweight")
+    else:
+        st.error("Obese")
+        
